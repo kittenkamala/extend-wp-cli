@@ -39,13 +39,20 @@ class kittenKPF {
 
   //activation
   function activate() {
+      
       //include plugin stylesheet
-      flush_rewrite_rules();
+      //Ensure the $wp_rewrite global is loaded
+      global $wp_rewrite;
+      //Call flush_rules() as a method of the $wp_rewrite object
+      $wp_rewrite->flush_rules( false );
   }
 
   //deactivation
   function deactivate() {
-      flush_rewrite_rules();
+      //Ensure the $wp_rewrite global is loaded
+      global $wp_rewrite;
+      //Call flush_rules() as a method of the $wp_rewrite object
+      $wp_rewrite->flush_rules( false );
   }
 
 
