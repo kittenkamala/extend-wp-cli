@@ -37,26 +37,21 @@ class kittenKPF {
   }
 
 
-  //activation #todo
+  //activation
   function activate() {
       //include plugin stylesheet
-      //flush rewrite rules 
+      flush_rewrite_rules();
   }
 
-  //deactivation #todo
+  //deactivation
   function deactivate() {
-      //flush rewrite rules 
+      flush_rewrite_rules();
   }
 
-  //uninstall #todo
-  function uninstall()
-  {
-      // code to delete plugin data from db
-    }
 
    public static function pf_function( $attributes )
 {
-    //your code here
+    //your programmatic code here
 
 }
 }
