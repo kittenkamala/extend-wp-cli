@@ -26,15 +26,29 @@ class kittenKPF {
         add_action( 'init', array($this, 'register_style'));
         add_action( 'init', array($this, 'enqueue_style'));
     } 
-  
+    
+    //add menu options
+    function kkpf_menu() {
+        add_submenu_page( 'tools.php', 'KittenK Plugin Frame', 'KittenK PF Options', 'manage_options', 'KittenKPF', array($this,'kkpf_page') );
+    }
+
+    function kkpf_page() {
+        if ( !current_user_can( 'manage_options' ) )  {
+            wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+        }
+        echo '<div class="wrap">';
+        echo '<p> <h1 align="center">=^_^= <br> KittenK Plugin Frame</h1><br></p>';
+        echo '</div>';
+    }
+
   //register stylesheet on plugin initialization
   function register_style(){
       wp_register_style( 'test_style', plugins_url('/css/test_style.css', __FILE__), false, '1.0.0', 'all'); 
-  }
+    }
   //enqueue stylesheet on initialization 
   function enqueue_style(){
       wp_enqueue_style( 'test_style' ); #todo, make this for plugin admin and posts only 
-  }
+    }
 
 
   //activation
@@ -56,11 +70,9 @@ class kittenKPF {
   }
 
 
-   public static function pf_function( $attributes )
-{
-    //your programmatic code here
-
-}
+   public static function pf_function( $attributes ){
+    //your code here
+    }
 }
 
 if ( class_exists( 'kittenKPF' )) {
@@ -69,3 +81,4 @@ if ( class_exists( 'kittenKPF' )) {
 
 register_activation_hook( __FILE__, array( $kittenKPF, 'activate'));
 register_deactivation_hook( __FILE__, array( $kittenKPF, 'deactivate'));
+add_action( 'admin_menu', array($kittenKPF, 'kkpf_menu'));
