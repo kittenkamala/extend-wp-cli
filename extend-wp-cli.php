@@ -1,26 +1,26 @@
 <?php
 /*
-* @package kittenk_plugin_frame
+* @package extend_wp_cli
 */
 /**
- * Plugin Name:       KittenK WordPress Plugin Frame 
+ * Plugin Name:       Pantheon System's Extend WP-CLI Plugin
  * Plugin URI:        
- * Description:       Customizeable WordPress Plugin Frame to kickstart development.
+ * Description:       Extend WP-CLI with custom package installs
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
- * Author:            Amy Kamala
- * Author URI:        https://kittenkamala.com
+ * Author:            Pantheon System's Inc.
+ * Author URI:        
  * License:           GPL v3 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       kittenkpf
+ * Text Domain:       extendwpcli
  **/
 
 
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-class kittenKPF {
+class extendWPCLI {
 
     function __construct() {
         add_action( 'init', array($this, 'register_style'));
@@ -28,16 +28,16 @@ class kittenKPF {
     } 
     
     //add menu options
-    function kkpf_menu() {
-        add_submenu_page( 'tools.php', 'KittenK Plugin Frame', 'KittenK PF Options', 'manage_options', 'KittenKPF', array($this,'kkpf_page') );
+    function ewpc_menu() {
+        add_submenu_page( 'tools.php', 'Pantheon Systems Extend WP-CLI', 'Extend WP-CLI Options', 'manage_options', 'extendWPCLI', array($this,'ewpc_page') );
     }
 
-    function kkpf_page() {
+    function ewpc_page() {
         if ( !current_user_can( 'manage_options' ) )  {
             wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
         }
         echo '<div class="wrap">';
-        echo '<p> <h1 align="center">=^_^= <br> KittenK Plugin Frame</h1><br></p>';
+        echo '<p> <h1 align="center">=^_^= <br> Pantheon Systems Extend WP-CLI /h1><br><h2>Info Page</h2></p>';
         echo '</div>';
     }
 
@@ -70,15 +70,15 @@ class kittenKPF {
   }
 
 
-   public static function pf_function( $attributes ){
+   public static function ewpc_add_package( $attributes ){
     //your code here
     }
 }
 
-if ( class_exists( 'kittenKPF' )) {
-  $kittenKPF = new kittenKPF();
+if ( class_exists( 'extendWPCLI' )) {
+  $extendWPCLI = new extendWPCLI();
 }
 
-register_activation_hook( __FILE__, array( $kittenKPF, 'activate'));
-register_deactivation_hook( __FILE__, array( $kittenKPF, 'deactivate'));
-add_action( 'admin_menu', array($kittenKPF, 'kkpf_menu'));
+register_activation_hook( __FILE__, array( $extendWPCLI, 'activate'));
+register_deactivation_hook( __FILE__, array( $extendWPCLI, 'deactivate'));
+add_action( 'admin_menu', array($extendWPCLI, 'ewpc_menu'));

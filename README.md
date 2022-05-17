@@ -1,9 +1,5 @@
-# kittenk_plugin_frame
+# extend_wp_cli
 
-Hello and thank you for checking out my GitHub! 
-
-This is a bare bones WordPress plugin frame/skeleton that folks are welcome to use as a base for plugin development.
-
-Feel free to clone, fork and code away!
+Install in WordPress website to extend WP-CLI functionality.
 
 

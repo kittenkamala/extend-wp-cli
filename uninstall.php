@@ -1,6 +1,6 @@
 <?php
 /*
-* @package kittenk_plugin_frame
+* @package extend_wp_cli
 */
 
 // if uninstall.php is not called by WordPress, die
