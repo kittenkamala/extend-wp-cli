@@ -59,6 +59,7 @@ class extendWPCLI {
       global $wp_rewrite;
       //Call flush_rules() as a method of the $wp_rewrite object
       $wp_rewrite->flush_rules( false );
+      $this->ewpc_add_package();
   }
 
   //deactivation
@@ -91,4 +92,4 @@ if ( class_exists( 'extendWPCLI' )) {
 register_activation_hook( __FILE__, array( $extendWPCLI, 'activate'));
 register_deactivation_hook( __FILE__, array( $extendWPCLI, 'deactivate'));
 add_action( 'admin_menu', array($extendWPCLI, 'ewpc_menu'));
-add_action( 'add_wp_profile', array($extendWPCLI, 'ewpc_add_package'));
+add_action( 'init', array($extendWPCLI, 'ewpc_add_package', 10, 2));
