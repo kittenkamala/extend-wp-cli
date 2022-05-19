@@ -70,7 +70,7 @@ class extendWPCLI {
   }
 
 
-   public static function ewpc_add_package( $attributes ){
+   public static function ewpc_add_package(){
     if ( ! class_exists( 'WP_CLI' ) ) {
         return;
     }
@@ -91,3 +91,4 @@ if ( class_exists( 'extendWPCLI' )) {
 register_activation_hook( __FILE__, array( $extendWPCLI, 'activate'));
 register_deactivation_hook( __FILE__, array( $extendWPCLI, 'deactivate'));
 add_action( 'admin_menu', array($extendWPCLI, 'ewpc_menu'));
+add_action( 'add_wp_profile', array($extendWPCLI, 'ewpc_add_package'));
