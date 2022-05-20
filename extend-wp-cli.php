@@ -59,7 +59,6 @@ class extendWPCLI {
       global $wp_rewrite;
       //Call flush_rules() as a method of the $wp_rewrite object
       $wp_rewrite->flush_rules( false );
-      $this->ewpc_add_package();
   }
 
   //deactivation
