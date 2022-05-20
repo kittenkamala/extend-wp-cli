@@ -80,7 +80,7 @@ class extendWPCLI {
         require_once $wpcli_profile_autoloader;
     }
     if( defined( 'WP_CLI' ) && WP_CLI ) {
-        WP_CLI::add_command( 'profile', 'WP_CLI\Profile\Command' );
+        WP_CLI::add_command( 'wp profile', 'WP_CLI\Profile\Command' );
     }
     }
 }
