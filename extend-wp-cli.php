@@ -81,8 +81,7 @@ class extendWPCLI {
         require_once $wpcli_profile_autoloader;
     }
 
-    WP_CLI::add_command( 'profile', 'wp-cli/profile-command' );
-    #WP_CLI::add_command( 'profile', 'WP_CLI\Profile\Command' );
+    WP_CLI::add_command( 'profile', 'WP_CLI\Profile\Command' );
     }
 }
 
