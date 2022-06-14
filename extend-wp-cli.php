@@ -25,6 +25,7 @@ class extendWPCLI {
     function __construct() {
         add_action( 'init', array($this, 'register_style'));
         add_action( 'init', array($this, 'enqueue_style'));
+        add_action( 'init', array($this, 'ewpc_add_package', 10, 2));
     } 
     
     //add menu options
@@ -92,4 +93,3 @@ if ( class_exists( 'extendWPCLI' )) {
 register_activation_hook( __FILE__, array( $extendWPCLI, 'activate'));
 register_deactivation_hook( __FILE__, array( $extendWPCLI, 'deactivate'));
 add_action( 'admin_menu', array($extendWPCLI, 'ewpc_menu'));
-add_action( 'init', array($extendWPCLI, 'ewpc_add_package', 10, 2));
